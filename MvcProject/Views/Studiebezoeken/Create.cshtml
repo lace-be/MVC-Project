@@ -1,0 +1,194 @@
+﻿@model MvcProject.ViewModels.StudiebezoekenViewModels.StudiebezoekenCreateViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Studiebezoek</h4>
+<hr />
+<div class="container-fluid">
+    <form asp-action="Create">
+        <div class="row">
+            <div class="col-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="GebruikerId" class="control-label">Gebruiker</label>
+                    <select asp-for="GebruikerId" class="form-control" asp-items="ViewBag.GebruikerId"></select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="VakId" class="control-label">Vak</label>
+                    <select asp-for="VakId" class="form-control" asp-items="ViewBag.VakId"></select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="KlasStudiebezoeken" class="control-label">Klassen</label>
+                    <select asp-for="KlasStudiebezoeken" class="form-control" asp-items="ViewBag.KlasId"></select>
+                </div>
+
+                <div class="form-group" id="gebruikerIdField" style="display:none;">
+                    <label asp-for="GebruikerId" class="control-label">Leerkracht</label>
+                    <select asp-for="GebruikerId" class="form-control" asp-items="ViewBag.GebruikerId"></select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Datum" class="control-label"></label>
+                    <input asp-for="Datum" class="form-control" onchange="updateTimeRestrictions()" />
+                    <span asp-validation-for="Datum" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="StartUur" class="control-label"></label>
+                    <input asp-for="StartUur" class="form-control" id="startUur" onchange="updateTimeRestrictions()" />
+                    <span asp-validation-for="StartUur" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="EindUur" class="control-label"></label>
+                    <input asp-for="EindUur" class="form-control" id="eindUur" onchange="updateTimeRestrictions()" />
+                    <span asp-validation-for="EindUur" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label asp-for="Reden" class="control-label"></label>
+                    <input asp-for="Reden" class="form-control" />
+                    <span asp-validation-for="Reden" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AantalStudenten" class="control-label"></label>
+                    <input asp-for="AantalStudenten" class="form-control" />
+                    <span asp-validation-for="AantalStudenten" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="KostprijsStudiebezoek" class="control-label"></label>
+                    <input asp-for="KostprijsStudiebezoek" class="form-control" />
+                    <span asp-validation-for="KostprijsStudiebezoek" class="text-danger"></span>
+                </div>
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" asp-for="VervoerBus" /> @Html.DisplayNameFor(model => model.VervoerBus)
+                    </label>
+                </div>
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" asp-for="VervoerTram" /> @Html.DisplayNameFor(model => model.VervoerTram)
+                    </label>
+                </div>
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" asp-for="VervoerTrein" /> @Html.DisplayNameFor(model => model.VervoerTrein)
+                    </label>
+                </div>
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" asp-for="VervoerTeVoet" /> @Html.DisplayNameFor(model => model.VervoerTeVoet)
+                    </label>
+                </div>
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" asp-for="VervoerAuto" /> @Html.DisplayNameFor(model => model.VervoerAuto)
+                    </label>
+                </div>
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" asp-for="VervoerFiets" /> @Html.DisplayNameFor(model => model.VervoerFiets)
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="KostprijsVervoer" class="control-label"></label>
+                    <input asp-for="KostprijsVervoer" class="form-control" />
+                    <span asp-validation-for="KostprijsVervoer" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="AfwezigeStudenten" class="control-label"></label>
+                    <select asp-for="AfwezigeStudenten" class="form-control" asp-items="ViewBag.Studenten" multiple></select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Opmerkingen" class="control-label"></label>
+                    <input asp-for="Opmerkingen" class="form-control" />
+                    <span asp-validation-for="Opmerkingen" class="text-danger"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+
+    <div>
+    </div>
+
+</div>
+
+<script>
+    function updateTimeRestrictions() {
+        var datumInput = document.getElementById('Datum');
+        var startUurInput = document.getElementById('startUur');
+        var eindUurInput = document.getElementById('eindUur');
+
+        // Parse values to Date objects
+        var datum = new Date(datumInput.value);
+        var startUur = new Date(startUurInput.value);
+        var eindUur = new Date(eindUurInput.value);
+
+        // Set minimum values
+        startUurInput.min = datumInput.value;
+        eindUurInput.min = startUurInput.value;
+
+        // Check if StartUur has a different date from Datum, adjust if necessary
+        if (startUur.toDateString() !== datum.toDateString()) {
+            startUurInput.value = datumInput.value + 'T' + startUurInput.value.split('T')[1];
+        }
+
+        // Check if EindUur has a different date from Datum, adjust if necessary
+        if (eindUur.toDateString() !== datum.toDateString()) {
+            eindUurInput.value = datumInput.value + 'T' + eindUurInput.value.split('T')[1];
+        }
+
+        // Check if EindUur is before StartUur, adjust if necessary
+        if (eindUur < startUur) {
+            eindUurInput.value = startUurInput.value;
+        }
+    }
+
+    // Assuming you have some way to get the user's identity
+    var userIdentity = getUserIdentity(); // Replace this with your way of getting the user's identity
+
+    // Function to show or hide the GebruikerId field based on the identity
+    function toggleGebruikerIdField() {
+        var gebruikerIdField = document.getElementById('gebruikerIdField');
+
+        // Check if the user identity is Leerkracht
+        if (userIdentity === 'Leerkracht') {
+            gebruikerIdField.style.display = 'block';
+        } else {
+            gebruikerIdField.style.display = 'none';
+        }
+    }
+
+    // Call the function initially to set the initial visibility
+    toggleGebruikerIdField();
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

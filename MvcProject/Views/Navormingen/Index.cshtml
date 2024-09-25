@@ -1,0 +1,99 @@
+﻿@model IEnumerable<MvcProject.Models.Navorming>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Navormingen</h1>
+
+
+<p>
+    <a asp-controller="Navormingen" asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Gebruiker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Datum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartUur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EindUur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reden)
+            </th>
+            <th> 
+                @Html.DisplayNameFor(model => model.Kostprijs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsGoedgekeurdDir)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAfgewezen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OpmerkingAfgewezen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAfgewerkt)
+            </th> 
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            
+        <tr>
+     
+            <td>
+                 @Html.DisplayFor(modelItem => item.Gebruiker.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Datum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartUur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EindUur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reden)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kostprijs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsGoedgekeurdDir)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAfgewezen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpmerkingAfgewezen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAfgewerkt)   
+            </td> 
+          
+            <td>
+                    @if (User.IsInRole("Directie") || User.IsInRole("Coördinator"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.NavormingId">Edit</a>
+                    }
+                    |
+                    <a asp-action="Details" asp-route-id="@item.NavormingId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.NavormingId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

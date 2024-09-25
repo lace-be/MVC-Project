@@ -1,0 +1,47 @@
+﻿@model MvcProject.ViewModels.FotoAlbum1ViewModels.CreateFotoAlbumViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>FotoAlbum</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StudiebezoekId" class="control-label"></label>
+                <select asp-for="StudiebezoekId" class ="form-control" asp-items="ViewBag.StudiebezoekId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Naam" class="control-label"></label>
+                <input asp-for="Naam" class="form-control" />
+                <span asp-validation-for="Naam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Datum" class="control-label"></label>
+                <input asp-for="Datum" class="form-control" />
+                <span asp-validation-for="Datum" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Fotos" class="control-label">Selecteer foto's:</label>
+                <input asp-for="Fotos" type="file" class="form-control" multiple />
+                <span asp-validation-for="Fotos" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Aanmaken</button>
+        </form>
+      
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

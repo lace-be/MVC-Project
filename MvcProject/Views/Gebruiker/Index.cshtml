@@ -1,0 +1,43 @@
+﻿@model MvcProject.ViewModels.GebruikerViewModels.GebruikerIndexViewModel
+
+@{
+    ViewData["Title"] = "Application Users";
+}
+
+<h1>Gebruikers</h1>
+<p>
+    <a asp-action="Register">Create Gebruiker</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model=>model.Email)</th>
+            <th>@Html.DisplayNameFor(model=>model.Voornaam)</th>
+            <th>@Html.DisplayNameFor(model=>model.Naam)</th>
+            <th>@Html.DisplayNameFor(model=>model.Initialen)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var gebruiker in Model.Gebruikers)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem=>gebruiker.Email)</td>
+                <td>@Html.DisplayFor(modelItem=>gebruiker.Voornaam)</td>
+                <td>@Html.DisplayFor(modelItem=>gebruiker.Naam)</td>
+                <td>@Html.DisplayFor(modelItem=>gebruiker.Initialen)</td>
+
+                <td>
+                    <a asp-asp-controller="Gebruiker" asp-action="Edit" asp-route-id="@gebruiker.Id" class="btn btn-primary">
+                        Wijzig
+                    </a>
+                </td>
+                <td>
+                    <a asp-asp-controller="Gebruiker" asp-action="Delete" asp-route-id="@gebruiker.Id" class="btn btn-secondary">
+                        Verwijder
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

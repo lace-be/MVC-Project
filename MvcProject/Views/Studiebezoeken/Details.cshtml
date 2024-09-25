@@ -1,0 +1,150 @@
+﻿@model MvcProject.Models.Studiebezoek
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Studiebezoek</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Datum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Datum)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StartUur)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartUur)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EindUur)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EindUur)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Reden)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Reden)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AantalStudenten)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AantalStudenten)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KostprijsStudiebezoek)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KostprijsStudiebezoek)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VervoerBus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VervoerBus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VervoerTram)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VervoerTram)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VervoerTrein)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VervoerTrein)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VervoerTeVoet)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VervoerTeVoet)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VervoerAuto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VervoerAuto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VervoerFiets)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VervoerFiets)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KostprijsVervoer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KostprijsVervoer)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AfwezigeStudenten)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AfwezigeStudenten)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Opmerkingen)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Opmerkingen)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsGoedgekeurdCo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsGoedgekeurdCo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsGoedgekeurdDir)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsGoedgekeurdDir)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsAfgewezen)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsAfgewezen)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OpmerkingAfgewezen)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OpmerkingAfgewezen)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsAfgewerkt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsAfgewerkt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Vak)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Vak.Naam)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Gebruiker)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gebruiker.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.StudiebezoekId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

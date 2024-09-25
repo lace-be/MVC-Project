@@ -1,0 +1,38 @@
+﻿@model MvcProject.Models.FotoAlbum
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>FotoAlbum</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Naam)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Naam)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Datum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Datum)
+        </dd>
+        <dt class="col-sm-2">
+            Studiebezoek
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Studiebezoek.GebruikerId)
+        </dd>
+    </dl>
+</div>
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
